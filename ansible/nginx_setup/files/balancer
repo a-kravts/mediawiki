@@ -1,0 +1,13 @@
+upstream backend {
+    server 158.160.50.62:80 max_fails=1 fail_timeout=3s;	#vm02
+    server 158.160.41.69:80  max_fails=1 fail_timeout=3s;	#vm03
+    server 158.160.58.236:80  max_fails=1 fail_timeout=3s;	#vm04
+}
+
+server {
+    listen 80;
+    location / {
+        proxy_pass http://backend;
+    	proxy_next_upstream error http_404 http_500 http_502 http_503 http_504;
+    }
+}

@@ -1,0 +1,9 @@
+---
+# tasks file for default_packages
+
+- name: Установка программ #Имя задачи
+  apt: #Используемый модуль
+    name: "{{ item }}" #Имя пакета из цикла
+    state: present
+  loop:
+    - "{{ packages_to_install }}"

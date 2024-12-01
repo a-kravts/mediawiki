@@ -1,0 +1,25 @@
+---
+# tasks file for nginx_setup
+
+- name: Установка Nginx
+  apt:
+    name: "nginx"
+    state: present
+
+- name: Удалить страндартный конфиг nginx
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+
+- name: Замена файла настроек для балансировщика
+  copy:
+    src: balancer
+    dest: /etc/nginx/sites-enabled/
+  when: "'vm01' in inventory_hostname" # Выполнится только тогда, когда в имени есть vm01
+  notify: "Nginx Reloader"
+
+- name: Замена файла настроек для серверов
+  copy:
+    src: default
+    dest: /etc/nginx/sites-enabled/
+  when: "'vm01' not in inventory_hostname" # Выполнится когда в имени нет vm01

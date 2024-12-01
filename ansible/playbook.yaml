@@ -1,0 +1,28 @@
+---
+#- name: Изменение имени машины на имя из Inventory
+#  hosts: all
+#  roles:
+#    - role: change_hostname
+#  tags:
+#    - change_hostname
+
+#- name: Установка стандартных пакетов + для mediawiki
+#  hosts: mediawiki
+#  roles:
+#    - role: default_packages
+#  tags:
+#    - install_packages
+
+#- name: Установка и настройка балансирующего nginx + на серверах mediawiki
+#  hosts: nginx # Будет работать на узлах в группе nginx
+#  roles:
+#    - role: nginx_setup
+#  tags:
+#    - nginx_setup
+
+- name: Установка и настройка mediawiki
+  hosts: mediawiki 
+  roles:
+    - role: mediawiki_setup
+  tags:
+    - mediawiki_setup

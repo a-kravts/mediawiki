@@ -1,0 +1,27 @@
+---
+linux:
+  children:
+    nginx:
+      hosts:
+        vm01:
+          ansible_host: 158.160.57.75
+        vm02:
+          ansible_host: 158.160.50.62
+        vm03:
+          ansible_host: 158.160.41.69
+        vm04:
+          ansible_host: 158.160.58.236
+    mediawiki:
+      hosts:
+        vm02:
+          ansible_host: 158.160.57.75
+        vm03:
+          ansible_host: 158.160.50.62
+        vm04:
+          ansible_host: 158.160.41.69
+  vars:
+    ansible_user: madmin
+    ansible_ssh_private_key_file: ~/.ssh/id_ed25519
+    connection_protocol: ssh
+    ansible_become: yes
+    ansible_python_interpreter: /usr/bin/python3

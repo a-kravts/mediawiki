@@ -1,0 +1,14 @@
+---
+# vars file for default_packages
+packages_to_install:
+  - net-tools
+  - wget 
+  - php-fpm
+  - php-pgsql
+  - php
+  - php-intl
+  - php-mbstring
+  - php-xml
+  - php-apcu
+  - php-curl
+  - postgresql
