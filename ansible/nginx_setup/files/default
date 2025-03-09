@@ -1,6 +1,6 @@
 server {
     listen 80;
-    server_name mediawiki.ru
+    server_name mediawiki.ru;
 
     root /var/www/mediawiki;
     index index.php index.html index.htm;

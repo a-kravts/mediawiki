@@ -1,6 +1,9 @@
 ---
 # tasks file for nginx_setup
 
+- name: Обновление пакетов программ
+  shell: apt update -y
+
 - name: Установка Nginx
   apt:
     name: "nginx"
@@ -23,3 +26,4 @@
     src: default
     dest: /etc/nginx/sites-enabled/
   when: "'vm01' not in inventory_hostname" # Выполнится когда в имени нет vm01
+  notify: "Nginx Reloader"

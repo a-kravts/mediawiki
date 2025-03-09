@@ -1,6 +1,9 @@
 ---
 # tasks file for default_packages
 
+- name: Обновление пакетов программ
+  shell: apt update -y
+
 - name: Установка программ #Имя задачи
   apt: #Используемый модуль
     name: "{{ item }}" #Имя пакета из цикла

@@ -1,2 +1,12 @@
 ---
 # tasks file for mediawiki_setup
+
+- name: Скачать пакет mediawiki
+  apt:
+    name: "nginx"
+    state: present
+
+- name: Распаковать пакет
+  apt:
+    name: "nginx"
+    state: present
