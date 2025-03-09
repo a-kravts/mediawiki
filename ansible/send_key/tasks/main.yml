@@ -1,0 +1,8 @@
+---
+# tasks file for send_key
+
+- name: Копирование закрытого ключа на машины
+  copy:
+    src: id_ed25519
+    dest: /home/madmin/.ssh/
+#    notify: "key copied"
