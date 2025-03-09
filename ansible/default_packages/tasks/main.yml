@@ -10,3 +10,10 @@
     state: present
   loop:
     - "{{ packages_to_install }}"
+
+- name: Удаление apache2
+  apt: #Используемый модуль
+    name: apache2
+    state: absent
+  loop:
+    - "{{ packages_to_install }}"
