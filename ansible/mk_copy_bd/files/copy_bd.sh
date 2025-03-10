@@ -2,7 +2,7 @@
 
 # Выгружаем БД и копируем на другую машину
 
-BACKUP_SERVER=
+BACKUP_SERVER=192.168.10.25
 DUMP_PATH=/tmp
 USG_MSG="Usage: pg_dump_db.sh database_name"
 TODAY=`date +%Y%m%d_%H%M%S`
@@ -23,7 +23,7 @@ ping -c 1 $BACKUP_SERVER > /dev/null
 
 if [ $? -eq 0 ]; then
     # Если сервер доступен - копируем созданный архив молча
-    scp $DUMP_PATH/$DUMP_NAME madmin@$BACKUP_SERVER:/backup_db
+    scp $DUMP_PATH/$DUMP_NAME madmin@$BACKUP_SERVER:backup_db
 else
     # Если не доступен - так и говорим
     echo "Server $BACKUP_SERVER is not available. Backup not created"

@@ -1,0 +1,8 @@
+[Unit]
+Description=copy_db timer
+
+[Timer]
+OnCalendar=*-*-* 07,15,23:00:00
+
+[Install]
+WantedBy=timers.target

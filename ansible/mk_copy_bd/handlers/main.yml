@@ -1,0 +1,20 @@
+---
+# handlers file for mk_copy_bd
+
+- name: Установка прав на copy_bd.sh
+  shell: chmod 755 /usr/bin/copy_bd.sh
+  listen: "copy_bd.sh copied"
+
+- name: Старт copy_bd.service
+  service:
+    name: copy_bd.service
+    state: started
+    enabled: yes
+  listen: "demon-reloaded"
+
+- name: Старт copy_bd.timer
+  service:
+    name: copy_bd.timer
+    state: started
+    enabled: yes
+  listen: "demon-reloaded"

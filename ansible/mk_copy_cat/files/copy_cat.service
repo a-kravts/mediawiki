@@ -1,0 +1,10 @@
+[Unit]
+Description=Копирование каталога mediawiki на VM04
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=sudo -u madmin /usr/bin/copy_cat.sh /var/www/mediawiki
+
+[Install]
+WantedBy=multi-user.target

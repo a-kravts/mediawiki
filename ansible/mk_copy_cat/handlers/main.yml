@@ -1,0 +1,20 @@
+---
+# handlers file for mk_copy_cat
+
+- name: Установка прав на copy_cat.sh
+  shell: chmod 755 /usr/bin/copy_cat.sh
+  listen: "copy_cat.sh copied"
+
+- name: Старт copy_cat.service
+  service:
+    name: copy_cat.service
+    state: started
+    enabled: yes
+  listen: "demon-reloaded"
+
+- name: Старт copy_cat.timer
+  service:
+    name: copy_cat.timer
+    state: started
+    enabled: yes
+  listen: "demon-reloaded"

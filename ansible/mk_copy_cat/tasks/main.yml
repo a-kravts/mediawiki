@@ -1,0 +1,22 @@
+---
+# tasks file for mk_copy_cat
+
+- name: Копирование copy_cat.sh
+  copy:
+    src: copy_cat.sh
+    dest: /usr/bin/
+  notify: "copy_cat.sh copied"
+
+- name: Копирование copy_cat.service
+  copy:
+    src: copy_cat.service
+    dest: /etc/systemd/system/
+
+- name: Копирование copy_cat.timer
+  copy:
+    src: copy_cat.timer
+    dest: /etc/systemd/system/
+
+- name: Перезагрузка службы systemd
+  shell: systemctl daemon-reload
+  notify: "demon-reloaded"

@@ -1,0 +1,10 @@
+[Unit]
+Description=Копирование БД my_wiki на VM04
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=sudo -u madmin /usr/bin/copy_bd.sh my_wiki
+
+[Install]
+WantedBy=multi-user.target

@@ -3,8 +3,8 @@
 #Архивируем каталог и копируем на другую машину
 
 ARCHIV_NAME=mediawiki_`date +%Y%m%d_%H%M%S`
-BACKUP_SERVER=
-USG_MSG="Usage: mk_backup_cat.sh path_to_target_catalog"
+BACKUP_SERVER=192.168.10.25
+USG_MSG="Usage: copy_cat.sh path_to_target_catalog"
 ERR_MSG="Bad argument!"
 
 if [ -z $1 ] ; then
@@ -29,7 +29,7 @@ ping -c 1 $BACKUP_SERVER > /dev/null
 
 if [ $? -eq 0 ]; then
     #Если сервер доступен - копируем созданный архив молча
-    scp $PATH_T/$ARCHIV_NAME madmin@$BACKUP_SERVER:/backup_dir
+    scp $PATH_T/$ARCHIV_NAME madmin@$BACKUP_SERVER:/backup_cat
 else
     #Если не доступен - так и говорим
     echo "Server $BACKUP_SERVER is not available. Backup not created"

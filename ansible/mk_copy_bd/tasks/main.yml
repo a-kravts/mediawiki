@@ -1,0 +1,22 @@
+---
+# tasks file for mk_copy_bd
+
+- name: Копирование copy_bd.sh
+  copy:
+    src: copy_bd.sh
+    dest: /usr/bin/
+  notify: "copy_bd.sh copied"
+
+- name: Копирование copy_bd.service
+  copy:
+    src: copy_bd.service
+    dest: /etc/systemd/system/
+
+- name: Копирование copy_bd.timer
+  copy:
+    src: copy_bd.timer
+    dest: /etc/systemd/system/
+
+- name: Перезагрузка службы systemd
+  shell: systemctl daemon-reload 
+  notify: "demon-reloaded"
