@@ -1,0 +1,5 @@
+---
+# tasks file for mk_backup_dir
+
+- name: Создать каталоги backup_cat и backup_db
+  shell: mkdir /home/madmin/backup_cat /home/madmin/backup_db
